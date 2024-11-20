@@ -3,8 +3,6 @@ FROM ubuntu:24.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=America/Sao_Paulo
 
-VOLUME ["/var/cache/apt/archives"]
-
 RUN apt-get update
 
 RUN apt-get install -y ca-certificates apt-transport-https software-properties-common
@@ -20,4 +18,5 @@ RUN git clone https://github.com/LazyVim/starter ~/.config/nvim
 
 WORKDIR /home/ubuntu/app
 
-CMD ["sleep", "infinity"]
+CMD ["npm", "run", "dev", "--", "--host"]
+#CMD ["sleep", "infinity"]
